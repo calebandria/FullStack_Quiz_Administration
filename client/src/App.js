@@ -1,10 +1,12 @@
 import './App.css';
-import QuestionItems from './components/questions/questionItems.component';
+import QuestionQuery from './components/questions/QuestionQuery.component';
+import QuestionCreate from './components/questions/QuestionCreate.component';
 
 function App() {
   return(
     <div className='App'>
-        <QuestionItems />
+        <QuestionQuery />
+        <QuestionCreate/>
     </div>
     
   )

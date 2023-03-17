@@ -1,19 +1,19 @@
 import { useState , useEffect} from "react";
-function QuestionItems(){
+function QuestionQuery(){
     const[data, setData] = useState([]);
 
     useEffect(()=>{
-         fetch('http://localhost:5000/question/get')
+         fetch('http://192.168.1.83:5000/question/get')
             .then(response => response.json())
             .then( donnees => {
                 setData(donnees.data); // this "data" is written in the rest api code
-                console.log(donnees)
             })
 
     },[])
 
     return(
-        <div className="question">
+        <div className="question-query">
+            <h1>Question Querying</h1>
             <table className ="table-skeleton">
                 <thead>
                     <tr>
@@ -28,7 +28,7 @@ function QuestionItems(){
                                 <tr>
                                     <td key={item.id_question}>{item.id_question}</td>
                                     <td key={item.id_question}>{item.content}</td>
-                                    <td key={item.id_question}>{item.id_theme}</td>
+                                    <td key={item.id_question}>{item.label}</td>
                                 </tr>
                         )
                     })}
@@ -39,4 +39,4 @@ function QuestionItems(){
         
     )
 }
-export default QuestionItems;
+export default QuestionQuery;
