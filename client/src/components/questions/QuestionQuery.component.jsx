@@ -3,7 +3,7 @@ function QuestionQuery(){
     const[data, setData] = useState([]);
 
     useEffect(()=>{
-         fetch('http://192.168.1.83:5000/question/get')
+         fetch('http://localhost:5000/question/get')
             .then(response => response.json())
             .then( donnees => {
                 setData(donnees.data); // this "data" is written in the rest api code

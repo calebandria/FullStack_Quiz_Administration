@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 function QuestionCreate(){
     const [data, setData] = useState([]);
     useEffect(()=>{
-        fetch('http://192.168.1.83:5000/theme/get')
+        fetch('http://localhost:5000/theme/get')
             .then(response => response.json())
             .then(donnees =>{
                 setData(donnees.data);
