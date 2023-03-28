@@ -25,10 +25,10 @@ function QuestionQuery(){
                 <tbody>
                     {data.map((item)=>{
                         return(
-                                <tr>
-                                    <td key={item.id_question}>{item.id_question}</td>
-                                    <td key={item.id_question}>{item.content}</td>
-                                    <td key={item.id_question}>{item.label}</td>
+                                <tr key={item.id_question}>
+                                    <td /* key={item.id_question} */>{item.id_question}</td>
+                                    <td /* key={item.id_question} */>{item.content}</td>
+                                    <td /* key={item.id_question} */>{item.label}</td>
                                 </tr>
                         )
                     })}

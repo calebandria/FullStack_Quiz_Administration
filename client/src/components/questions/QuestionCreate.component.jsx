@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 function QuestionCreate(){
     const [dataGot, setDataGot] = useState([]);
-    const [idTheme, setIdTheme] = useState(1);
+    const [id_theme, setid_theme] = useState(1);
     const [content, setContent] = useState("");
    
     useEffect(()=>{
@@ -19,14 +19,15 @@ function QuestionCreate(){
     const handleSubmit = (event) =>{
         event.preventDefault();
         // setContent(event.target.value);
-        const data = { idTheme, content};
-        console.log(data);
+        const data = { id_theme, content};
+        data.id_theme = parseInt(id_theme);
+        // console.log(typeof data.id_theme);
         const requestOptions = {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify(data)
         };
-        fetch('http://192.168.1.83:5000/question/post',requestOptions)
+        fetch('http://localhost:5000/question/post',requestOptions)
             .then(response =>response.json())
             .then(response => console.log(response));
     };
@@ -50,9 +51,9 @@ function QuestionCreate(){
                             <div>
                                 <input 
                                 name="label" 
-                                key={element.id_theme} 
-                                type="radio" value={element.id_theme} 
-                                onClick={(e)=> {setIdTheme(e.target.value); console.log(`ID theme new : ${idTheme}`)}}
+                                key={parseInt(element.id_theme)} 
+                                type="radio" value={(element.id_theme)} 
+                                onClick={(e)=> {setid_theme(e.target.value);}}
                                 required/>{element.label}
                             </div>
                         )
