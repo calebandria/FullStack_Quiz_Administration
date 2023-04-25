@@ -17,7 +17,7 @@ function QuestionCreate(){
     }
 
     const handleSubmit = (event) =>{
-        event.preventDefault();
+        
         // setContent(event.target.value);
         const data = { id_theme, content};
         data.id_theme = parseInt(id_theme);
@@ -30,6 +30,7 @@ function QuestionCreate(){
         fetch('http://localhost:5000/question/post',requestOptions)
             .then(response =>response.json())
             .then(response => console.log(response));
+        event.preventDefault();
     };
     return(
         <div className="question_create">

@@ -1,4 +1,32 @@
 import { useState , useEffect} from "react";
+/* import { DetailsList } from "@fluentui/react/lib/DetailsList"; */
+
+/* const columns = [
+    {
+        key:"question",
+        name: "N°",
+        fieldName: "id_question",
+        minWidth: 90,
+        maxWidth: 200,
+        isResizable: true
+    },
+    {
+        key:"content",
+        name: "Question",
+        fieldName: "content",
+        minWidth: 90,
+        maxWidth: 500,
+        isResizable: true
+    },
+    {
+        key:"label",
+        name: "Theme",
+        fieldName: "label",
+        minWidth: 90,
+        maxWidth: 200,
+        isResizable: true
+    }
+]; */
 function QuestionQuery(){
     const[data, setData] = useState([]);
 
@@ -9,7 +37,7 @@ function QuestionQuery(){
                 setData(donnees.data); // this "data" is written in the rest api code
             })
 
-    },[])
+    })
 
     return(
         <div className="question-query">
@@ -34,7 +62,6 @@ function QuestionQuery(){
                     })}
                 </tbody>
             </table>
-            
         </div>
         
     )
