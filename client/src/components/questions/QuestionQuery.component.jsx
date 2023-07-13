@@ -1,4 +1,4 @@
-import { useState , useEffect} from "react";
+/* import { useState , useEffect} from "react"; */
 /* import { DetailsList } from "@fluentui/react/lib/DetailsList"; */
 
 /* const columns = [
@@ -27,18 +27,7 @@ import { useState , useEffect} from "react";
         isResizable: true
     }
 ]; */
-function QuestionQuery(){
-    const[data, setData] = useState([]);
-
-    useEffect(()=>{
-         fetch('http://localhost:5000/question/get')
-            .then(response => response.json())
-            .then( donnees => {
-                setData(donnees.data); // this "data" is written in the rest api code
-            })
-
-    })
-
+function QuestionQuery(props){
     return(
         <div className="question-query">
             <h1>Question Querying</h1>
@@ -51,12 +40,12 @@ function QuestionQuery(){
                     </tr>
                 </thead>
                 <tbody>
-                    {data.map((item)=>{
+                    {props.quest.map(({id_question, label, content})=>{
                         return(
-                                <tr key={item.id_question}>
-                                    <td /* key={item.id_question} */>{item.id_question}</td>
-                                    <td /* key={item.id_question} */>{item.content}</td>
-                                    <td /* key={item.id_question} */>{item.label}</td>
+                                <tr key={id_question}>
+                                    <td /* key={item.id_question} */>{id_question}</td>
+                                    <td /* key={item.id_question} */>{content}</td>
+                                    <td /* key={item.id_question} */>{label}</td>
                                 </tr>
                         )
                     })}
